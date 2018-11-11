@@ -14,10 +14,16 @@ class MainActivity : ToolbarActivity(), NavigationView.OnNavigationItemSelectedL
         setContentView(R.layout.activity_main)
 
         toolbarToLoad(toolbar as Toolbar)
+
+        setNavDrawer()
     }
 
     private fun setNavDrawer(){
-       // val toogle = ActionBarDrawerToggle(this, drawerLayout)
+        val toogle = ActionBarDrawerToggle(this, drawerLayout,_toobar, R.string.open_drawer, R.string.close_drawer)
+        toogle.isDrawerIndicatorEnabled =true
+        drawerLayout.addDrawerListener(toogle)
+        toogle.syncState()
+        navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {

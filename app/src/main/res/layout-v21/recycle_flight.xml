@@ -15,7 +15,7 @@
                 android:id="@+id/imageViewBg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-        <view
+        <View
                 android:background="#3000"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"/>

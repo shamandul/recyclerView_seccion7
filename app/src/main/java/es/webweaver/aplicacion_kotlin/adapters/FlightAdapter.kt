@@ -10,18 +10,18 @@ import es.webweaver.aplicacion_kotlin.loadByResource
 import es.webweaver.aplicacion_kotlin.models.Flight
 import kotlinx.android.synthetic.main.recycle_flight.view.*
 
-class FlightAdapter(private val  flight: List<Flight>, private val listener: RecyclerFlightListener)
+class FlightAdapter(private val flights: List<Flight>, private val listener: RecyclerFlightListener)
     : RecyclerView.Adapter<FlightAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent.inflate(R.layout.recycle_flight))
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(flight[position], listener)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(flights[position], listener)
 
-    override fun getItemCount() = flight.size
+    override fun getItemCount() = flights.size
 
 
-    class  ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun bind(flight: Flight, listener: RecyclerFlightListener)= with(itemView){
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        fun bind(flight: Flight, listener: RecyclerFlightListener) = with(itemView){
             textViewCityName.text = flight.city
             imageViewBg.loadByResource(flight.imgResource)
             // Click Events
